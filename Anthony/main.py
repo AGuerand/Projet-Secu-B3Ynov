@@ -1,8 +1,8 @@
 import datetime
 
 log_File = "../../log.log"
-login_Num = 10
-login_Time = 10
+login_Num = 3
+login_Time = 60
 
 def parse_log_file():
     login_attempts = {}
