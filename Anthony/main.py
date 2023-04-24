@@ -4,6 +4,8 @@ log_File = "../../log.log"
 login_Num = 3
 login_Time = 60
 
+print("aax")
+
 def parse_log_file():
     login_attempts = {}
     with open(log_File) as log_file:
