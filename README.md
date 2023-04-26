@@ -23,7 +23,7 @@ Ce projet vise à améliorer la sécurité de la partie application de Open Syst
 
 ## Installation
 
-1. Clonez ce dépôt ou téléchargez les fichiers `app.py` et `http_logger.py`.
+1. Clonez ce dépôt.
 2. Installez les dépendances en exécutant la commande suivante :
 
 ```bash
