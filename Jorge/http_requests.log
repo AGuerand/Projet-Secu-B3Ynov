@@ -21,3 +21,5 @@
 2023-04-26 14:37:08 [INFO] -  * Restarting with stat
 2023-04-26 14:37:08 [WARNING] -  * Debugger is active!
 2023-04-26 14:37:08 [INFO] -  * Debugger PIN: 342-851-992
+2023-04-26 16:26:03 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-04-26 16:29:57 [WARNING] - SQL injection detected from IP: '127.0.0.1'. Account: 'test@test.fr' or 1=1', Password: 'rgfr'
