@@ -56,7 +56,7 @@ Vous pouvez personnaliser les paramètres de sécurité en modifiant les variabl
 
 ## Avertissement
 
-Veuillez noter que l'approche utiliser peut ne pas être à 100 % fiable, car elles se bases sur les caracteristiques simples pour identifier les différentes types de attaques, certaines attaques avancé peuvent avoir raison de cette securité.
+Veuillez noter que l'approche utiliser peut ne pas être à 100 % fiable, car elles se bases sur des caracteristiques simples pour identifier les différentes types de attaques, certaines attaques avancé peuvent avoir raison de cette securité.
 Par exemple:
 - La détection des agents connues en cyber est simpliste, elle ce base sur la frequence et l'en-tête User-Agent des requetes http, mais les attaquants peuvent facilement modifier l'en-tête User-Agent pour contourner la détection.
 - La détection des injections SQL dans ce projet est rudimentaire et pourrait ne pas couvrir tous les cas possibles. Pour une protection plus robuste, l'utilisation des bibliothèques spécialisées ou des services de sécurité Web est plus approprié.
