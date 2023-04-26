@@ -3,6 +3,7 @@ import re
 from functools import wraps
 from flask import request, abort
 import logging
+import re
 # Dictionnaire pour stocker les tentatives de connexion échouées
 failed_attempts = {}
 
@@ -49,10 +50,20 @@ def detect_bruteforce_attack(username):
         return True
     return False
 
+def detect_xss(input_string):
+    xss_pattern = r'<.*?>|&.*?;'
+    return bool(re.search(xss_pattern, input_string))
+
 def detect_sql_injection(input_data):
     if sql_injection_pattern.search(input_data):
         return True
     return False
+
+def detect_cybersecurity_agents(user_agent):
+    cybersecurity_agents = ['nikto', 'burp', 'metasploit']
+    user_agent = user_agent.lower()
+    return any(agent in user_agent for agent in cybersecurity_agents)
+
 
 def log_and_protect(func):
     @wraps(func)
@@ -65,16 +76,26 @@ def log_and_protect(func):
             abort(429, description="Your IP is temporarily blocked. Please try again later.")
             logging.warning(f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'")
 
+        if detect_cybersecurity_agents(user_agent):
+            logging.warning(f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'")
+            block_ip(client_ip)
+            abort(400, description="Access denied.")
+
         if username and password:
             if detect_bruteforce_attack(username):
                 logging.warning(f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'")
                 block_ip(client_ip)
                 abort(429, description="Too many failed attempts. Please try again later.")
+
             if detect_sql_injection(username) or detect_sql_injection(password):
                 logging.warning(f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
 
+            if detect_xss(username) or detect_xss(password):
+                logging.warning(f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
+                block_ip(client_ip)
+                abort(400, description="Malicious input detected.")
+
         return func(*args, **kwargs)
     return wrapper
-
