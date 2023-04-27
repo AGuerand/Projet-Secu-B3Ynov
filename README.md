@@ -93,3 +93,4 @@ Pour réaliser ce projet, voici une liste de ressources et de documentations uti
    - Injections SQL : https://owasp.org/www-community/attacks/SQL_Injection
                       https://regex101.com/library/qE9gR7
    - Attaques XSS : https://owasp.org/www-community/attacks/xss/
+                    https://www.regextester.com/110397
