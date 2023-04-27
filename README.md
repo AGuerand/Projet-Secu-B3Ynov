@@ -95,3 +95,4 @@ Pour réaliser ce projet, voici une liste de ressources et de documentations uti
    - Attaques XSS : https://owasp.org/www-community/attacks/xss/
                     https://www.regextester.com/110397
    - Burp Agent Détection: https://blog.cyberseer.net/how-cyberseer-detect-burp-suite-using-darktrace
+   - Metasploit Agent Détection: https://github.com/secdev/scapy
