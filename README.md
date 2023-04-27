@@ -68,6 +68,7 @@ Pour réaliser ce projet, voici une liste de ressources et de documentations uti
 1. **Flask** : Le framework web Python utilisé pour développer l'application.
    - Documentation officielle : https://flask.palletsprojects.com/en/2.1.x/
    - Guide de démarrage rapide : https://flask.palletsprojects.com/en/2.1.x/quickstart/
+   - HTML Template : https://flask.palletsprojects.com/en/1.1.x/patterns/templateinheritance/
    - Tutoriel Flask (Mega-Tutorial) : https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
 2. **Flask-SQLAlchemy** : L'extension Flask pour interagir avec des bases de données SQL.
