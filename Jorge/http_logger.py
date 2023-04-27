@@ -17,8 +17,9 @@ block_duration = 300
 blocked_ips = {}
 
 # Expression régulière pour détecter les injections SQL
-# sql_injection_pattern = re.compile(r"('|\"|;|--|\b(?:SELECT|INSERT|UPDATE|DELETE|FROM|WHERE)\b)", re.IGNORECASE)
-sql_injection_pattern = re.compile(\s*([\0\b\'\"\n\r\t\%\_\\]*\s*(((select\s*.+\s*from\s*.+)|(insert\s*.+\s*into\s*.+)|(update\s*.+\s*set\s*.+)|(delete\s*.+\s*from\s*.+)|(drop\s*.+)|(truncate\s*.+)|(alter\s*.+)|(exec\s*.+)|(\s*(all|any|not|and|between|in|like|or|some|contains|containsall|containskey)\s*.+[\=\>\<=\!\~]+.+)|(let\s+.+[\=]\s*.*)|(begin\s*.*\s*end)|(\s*[\/\*]+\s*.*\s*[\*\/]+)|(\s*(\-\-)\s*.*\s+)|(\s*(contains|containsall|containskey)\s+.*)))(\s*[\;]\s*)*)+)", re.IGNORECASE)
+# sql_injection_pattern = re.compile(r"('|\"|;|--|\b(?:SELECT|INSERT|UPDATE|DELETE|FROM|WHERE)\b)", re.IGNORECASE)  (Regex V1)
+# Regex V2 (+Puissant) from: https://regex101.com/library/qE9gR7
+sql_injection_pattern = re.compile(r"\s*([\0\b\'\"\n\r\t\%\_\\]*\s*(((select\s*.+\s*from\s*.+)|(insert\s*.+\s*into\s*.+)|(update\s*.+\s*set\s*.+)|(delete\s*.+\s*from\s*.+)|(drop\s*.+)|(truncate\s*.+)|(alter\s*.+)|(exec\s*.+)|(\s*(all|any|not|and|between|in|like|or|some|contains|containsall|containskey)\s*.+[\=\>\<=\!\~]+.+)|(let\s+.+[\=]\s*.*)|(begin\s*.*\s*end)|(\s*[\/\*]+\s*.*\s*[\*\/]+)|(\s*(\-\-)\s*.*\s+)|(\s*(contains|containsall|containskey)\s+.*)))(\s*[\;]\s*)*)+")
 
 # Durée de blocage en secondes
 block_duration_ip = 300
@@ -52,7 +53,9 @@ def detect_bruteforce_attack(username):
     return False
 
 def detect_xss(input_string):
-    xss_pattern = r'<.*?>|&.*?;'
+#    xss_pattern = r'<.*?>|&.*?;'
+# XSS Regex V2
+     xss_pattern = r'(\b)(on\S+)(\s*)=|javascript|<(|\/|[^\/>][^>]+|\/[^>][^>]+)>'
     return bool(re.search(xss_pattern, input_string))
 
 def detect_sql_injection(input_data):
