@@ -91,4 +91,5 @@ Pour réaliser ce projet, voici une liste de ressources et de documentations uti
    - OWASP Top Ten Project : https://owasp.org/www-project-top-ten/
    - Attaques par force brute : https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks
    - Injections SQL : https://owasp.org/www-community/attacks/SQL_Injection
+                      https://regex101.com/library/qE9gR7
    - Attaques XSS : https://owasp.org/www-community/attacks/xss/
