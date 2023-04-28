@@ -112,6 +112,8 @@ Pour réaliser ce projet, voici une liste de ressources et de documentations uti
    - Attaques XSS : https://owasp.org/www-community/attacks/xss/
                     https://www.regextester.com/110397
    - Burp Agent Détection: https://blog.cyberseer.net/how-cyberseer-detect-burp-suite-using-darktrace
-   - Metasploit Agent Détection: https://github.com/secdev/scapy
+   - Metasploit Agent Détection: https://www.speedguide.net/port.php?port=4444
+                                 https://www.speedguide.net/port.php?port=4445
+   - Scan de Port (Security Agent Détection): https://github.com/secdev/scapy
    - WAF Definition: https://www.crowdstrike.fr/cybersecurity-101/web-application-firewall/
    - WAF Application Exemple (Open Source): https://github.com/0xInfection/Awesome-WAF
