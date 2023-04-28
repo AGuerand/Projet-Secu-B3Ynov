@@ -4,6 +4,7 @@ from functools import wraps
 from flask import request, abort
 import logging
 import re
+from scapy.all import *
 # Dictionnaire pour stocker les tentatives de connexion échouées
 failed_attempts = {}
 
@@ -68,6 +69,15 @@ def detect_cybersecurity_agents(user_agent):
     user_agent = user_agent.lower()
     return any(agent in user_agent for agent in cybersecurity_agents)
 
+def detect_metasploit(pkt):
+    if TCP in pkt:
+        client_ip = request.remote_addr
+        if pkt[TCP].dport == 4444 or pkt[TCP].dport == 4445:
+            if "metasploit" in str(pkt[TCP].payload).lower():
+                print("Metasploit traffic detected!")
+                logging.warning(f"Cybersecurity agent Metasploit detected from IP '{client_ip}'")
+                block_ip(client_ip)
+                abort(400, description="Access denied.")
 
 def log_and_protect(func):
     @wraps(func)
@@ -102,4 +112,5 @@ def log_and_protect(func):
                 abort(400, description="Malicious input detected.")
 
         return func(*args, **kwargs)
+     #sniff(filter="tcp port 4444 or tcp port 4445", prn=detect_metasploit)
     return wrapper

@@ -19,9 +19,12 @@ Ce projet vise à améliorer la sécurité de la partie application de Open Syst
 
 ## Dépendances
 
+- Python 3.x
 - Flask
 - Flask-SQLAlchemy
 - Flask-Login
+- Flask-WTF
+- Scapy
 
 ## Installation
 
@@ -29,10 +32,15 @@ Ce projet vise à améliorer la sécurité de la partie application de Open Syst
 2. Installez les dépendances en exécutant la commande suivante :
 
 ```bash
-pip install Flask Flask-SQLAlchemy Flask-Login
+pip install Flask Flask-SQLAlchemy Flask-Login scapy
+```
+3. Donner les droits suffissant au programme pour analyser les ports :
+
+```bash
+su
 ```
 
-3. Exécutez l'application avec la commande :
+4. Exécutez l'application avec la commande :
 
 ```bash
 python app.py
@@ -45,6 +53,14 @@ L'application sera accessible à l'adresse `http://127.0.0.1:5000`.
 Les routes `login` et `register` de l'application sont protégées par le décorateur `log_and_protect`. Ce décorateur vérifie les tentatives de connexion échouées pour détecter les attaques par force brute et analyse les entrées utilisateur pour détecter les injections SQL.
 
 Si une attaque est détectée, l'adresse IP de l'émetteur est bloquée temporairement pendant 5 minutes, et un message d'erreur est renvoyé. Les requêtes suspectes sont enregistrées dans un fichier `http_requests.log`, y compris l'heure, la date et l'adresse IP de l'émetteur.
+
+## Structure des fichiers
+
+- `app.py` : fichier principal de l'application Flask, contenant les routes, les modèles de base de données et les configurations.
+- `forms.py` : définition des formulaires de connexion et d'enregistrement avec les validateurs appropriés.
+- `http_logger.py` : fonctions de protection et de journalisation des requêtes HTTP. Implémente la détection des attaques et le blocage des adresses IP.
+- `templates` : dossier contenant les modèles HTML pour les pages de connexion et d'enregistrement.
+- `http_requests.log` : fichier de journalisation des requêtes HTTP (sera créé automatiquement lors de l'exécution de l'application).
 
 ## Personnalisation
 
