@@ -56,7 +56,7 @@ def detect_bruteforce_attack(username):
 def detect_xss(input_string):
 #    xss_pattern = r'<.*?>|&.*?;'
 # XSS Regex V2
-     xss_pattern = r'(\b)(on\S+)(\s*)=|javascript|<(|\/|[^\/>][^>]+|\/[^>][^>]+)>'
+    xss_pattern = r'(\b)(on\S+)(\s*)=|javascript|<(|\/|[^\/>][^>]+|\/[^>][^>]+)>'
     return bool(re.search(xss_pattern, input_string))
 
 def detect_sql_injection(input_data):
@@ -85,7 +85,8 @@ def log_and_protect(func):
         username = request.form.get('username')
         password = request.form.get('password')
         client_ip = request.remote_addr
-
+        user_agent = request.headers.get('User-Agent')
+        
         if is_ip_blocked(client_ip):
             abort(429, description="Your IP is temporarily blocked. Please try again later.")
             logging.warning(f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'")

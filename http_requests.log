@@ -1,0 +1,44 @@
+2023-05-02 11:24:47 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-02 11:24:47 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-02 11:24:47 [INFO] -  * Restarting with stat
+2023-05-02 11:24:48 [WARNING] -  * Debugger is active!
+2023-05-02 11:24:48 [INFO] -  * Debugger PIN: 747-273-879
+2023-05-02 11:30:38 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-02 11:30:38 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-02 11:30:38 [INFO] -  * Restarting with stat
+2023-05-02 11:30:39 [WARNING] -  * Debugger is active!
+2023-05-02 11:30:39 [INFO] -  * Debugger PIN: 747-273-879
+2023-05-02 11:31:34 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:34] "[33mGET / HTTP/1.1[0m" 404 -
+2023-05-02 11:31:34 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-05-02 11:31:39 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:39] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2023-05-02 11:31:39 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:39] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2023-05-02 11:31:39 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:39] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2023-05-02 11:31:40 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:40] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2023-05-02 11:31:40 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:40] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-05-02 11:31:48 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:48] "[35m[1mGET /login HTTP/1.1[0m" 500 -
+2023-05-02 11:31:48 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:48] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2023-05-02 11:31:48 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:48] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2023-05-02 11:31:48 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:48] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-05-02 11:31:48 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:48] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-05-02 11:31:52 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:52] "[35m[1mGET /register HTTP/1.1[0m" 500 -
+2023-05-02 11:31:53 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:53] "GET /register?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2023-05-02 11:31:53 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:53] "GET /register?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2023-05-02 11:31:53 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:53] "GET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2023-05-02 11:31:53 [INFO] - 127.0.0.1 - - [02/May/2023 11:31:53] "[36mGET /register?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-05-02 11:34:16 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading
+2023-05-02 11:34:16 [INFO] -  * Restarting with stat
+2023-05-02 11:34:17 [WARNING] -  * Debugger is active!
+2023-05-02 11:34:17 [INFO] -  * Debugger PIN: 747-273-879
+2023-05-02 11:34:27 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-02 11:34:27 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-02 11:34:27 [INFO] -  * Restarting with stat
+2023-05-02 11:34:28 [WARNING] -  * Debugger is active!
+2023-05-02 11:34:28 [INFO] -  * Debugger PIN: 747-273-879
+2023-05-02 11:34:33 [INFO] - 127.0.0.1 - - [02/May/2023 11:34:33] "GET /register HTTP/1.1" 200 -
+2023-05-02 11:36:30 [INFO] - 127.0.0.1 - - [02/May/2023 11:36:30] "[32mPOST /register HTTP/1.1[0m" 302 -
+2023-05-02 11:36:30 [INFO] - 127.0.0.1 - - [02/May/2023 11:36:30] "GET /login HTTP/1.1" 200 -
+2023-05-02 11:36:43 [INFO] - 127.0.0.1 - - [02/May/2023 11:36:43] "[32mPOST /login HTTP/1.1[0m" 302 -
+2023-05-02 11:36:43 [INFO] - 127.0.0.1 - - [02/May/2023 11:36:43] "GET /dashboard HTTP/1.1" 200 -
