@@ -32,7 +32,7 @@ Ce projet vise à améliorer la sécurité de la partie application de Open Syst
 2. Installez les dépendances en exécutant la commande suivante :
 
 ```bash
-pip install Flask Flask-SQLAlchemy Flask-Login scapy
+pip install Flask Flask-SQLAlchemy Flask-Login Flask-WTF scapy
 ```
 3. Donner les droits suffissant au programme pour analyser les ports :
 
