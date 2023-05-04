@@ -1,4 +1,4 @@
-# Projet Final B3 Cybersécurité Paris Ynov Campus 2023- WAF Securisation de la couche 7(Application)
+# Projet Final B3 Cybersécurité Paris Ynov Campus 2023- WAF Securisation de la couche 7(Application)🔥
 
 Ce projet vise à améliorer la sécurité de la partie application de Open Systems Interconnection en locurence le protocole HTTP qui est utilisé pour la communication entre les client Web et les serveurs. Pour un deployment simplifié stable on ce base sur le framework de dev. Web Flask, le but de l'exercice est de deployer un eventaille de techniques et fonctionnalitées de securité pour pré-munir les actions malveillantes lié à la couche 7, en détectant et bloquant les attaques par force brute, les injections SQL, les ataques XSS et Les agents d'automatisation d'attaque connu en Cyber-Sécurité. ET fournir également un système de logging pour garder une trace des requêtes malveillantes et des adresses IP associées, comportement correspondant à un WAF (Web Application Firewall).
 
@@ -26,15 +26,24 @@ Ce projet vise à améliorer la sécurité de la partie application de Open Syst
 - Flask-WTF
 - Scapy
 
-## Installation
+## Essayer avec Docker
+1. Installer le container
 
-1. Clonez ce dépôt ou téléchargez les fichiers `app.py` et `http_logger.py`.
+```bash
+docker pull jhighpriestcode/flask-waf:version-1.0
+```
+2. Lancer le container sur Docker Destop
+
+3. L'application sera accessible à l'adresse `http://127.0.0.1:5000/login`.
+
+## Installation
+1. Clonez ce dépôt.
 2. Installez les dépendances en exécutant la commande suivante :
 
 ```bash
 pip install Flask Flask-SQLAlchemy Flask-Login Flask-WTF scapy
 ```
-3. Donner les droits suffissant au programme pour analyser les ports :
+3. Donner les droits suffissant au programme pour analyser les ports (si vous êtes sous Linux) :
 
 ```bash
 su
@@ -46,7 +55,7 @@ su
 python app.py
 ```
 
-L'application sera accessible à l'adresse `http://127.0.0.1:5000`.
+L'application sera accessible à l'adresse `http://127.0.0.1:5000/login`.
 
 ## Utilisation
 
@@ -109,11 +118,16 @@ Pour réaliser ce projet, voici une liste de ressources et de documentations uti
    - Attaques par force brute : https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks
    - Injections SQL : https://owasp.org/www-community/attacks/SQL_Injection
                       https://regex101.com/library/qE9gR7
+                      http://laure.gonnord.org/pro/teaching/MIF30/projets2009/charlet_tixier_rapport.pdf
+                      https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiIpYKG0tv-AhXzXaQEHUkhDjw4ChAWegQIBhAB&url=https%3A%2F%2Fcisse.info%2Fjournal%2Findex.php%2Fcisse%2Farticle%2Fdownload%2F87%2FCISSE_v06_i01_p02.pdf%2F168&usg=AOvVaw0nSsfRUPMp-CIHlIAKJeHo
    - Attaques XSS : https://owasp.org/www-community/attacks/xss/
                     https://www.regextester.com/110397
+                    https://www.census.gov/fedcasic/fc2017/ppt/swaAnwar.pdf
    - Burp Agent Détection: https://blog.cyberseer.net/how-cyberseer-detect-burp-suite-using-darktrace
    - Metasploit Agent Détection: https://www.speedguide.net/port.php?port=4444
                                  https://www.speedguide.net/port.php?port=4445
    - Scan de Port (Security Agent Détection): https://github.com/secdev/scapy
    - WAF Definition: https://www.crowdstrike.fr/cybersecurity-101/web-application-firewall/
+                     https://owasp.org/www-pdf-archive/20090609-CERT-IST-WAF-v0.1.pdf
+                     https://www.cloudflare.com/media/pdf/cloudflare-datasheet-waf-french.pdf
    - WAF Application Exemple (Open Source): https://github.com/0xInfection/Awesome-WAF
