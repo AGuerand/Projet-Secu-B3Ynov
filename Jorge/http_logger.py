@@ -10,6 +10,9 @@ from scapy.all import *
 # Dictionnaire pour stocker les tentatives de connexion échouées
 failed_attempts = {}
 
+# Dictionnaire pour stocker les tentatives de connexion échouées par IP
+# failed_attempts_by_ip = {}
+
 # Nombre de tentatives de connexion échouées autorisées avant le blocage
 max_attempts = 7
 
@@ -101,6 +104,12 @@ def detect_metasploit(pkt):
                 block_ip(client_ip)
                 abort(400, description="Access denied.")
 
+# def update_failed_attempts_by_ip(client_ip):
+#     if client_ip not in failed_attempts_by_ip:
+#         failed_attempts_by_ip[client_ip] = 1
+#     else:
+#         failed_attempts_by_ip[client_ip] += 1
+
 
 def log_and_protect(func):
     @wraps(func)
@@ -134,7 +143,10 @@ def log_and_protect(func):
                 logging.warning(f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
-
+        # if username and password:
+        #     user = User.query.filter_by(username=username).first()
+        #     if not user or user.password != password:
+        #         update_failed_attempts_by_ip(client_ip)
         return func(*args, **kwargs)
      #sniff(filter="tcp port 4444 or tcp port 4445", prn=detect_metasploit)
     return wrapper
