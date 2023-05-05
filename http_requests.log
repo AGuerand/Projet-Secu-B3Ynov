@@ -42,3 +42,322 @@
 2023-05-02 11:36:30 [INFO] - 127.0.0.1 - - [02/May/2023 11:36:30] "GET /login HTTP/1.1" 200 -
 2023-05-02 11:36:43 [INFO] - 127.0.0.1 - - [02/May/2023 11:36:43] "[32mPOST /login HTTP/1.1[0m" 302 -
 2023-05-02 11:36:43 [INFO] - 127.0.0.1 - - [02/May/2023 11:36:43] "GET /dashboard HTTP/1.1" 200 -
+2023-05-02 15:07:38 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-02 15:07:38 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-02 15:07:38 [INFO] -  * Restarting with stat
+2023-05-02 15:07:39 [WARNING] -  * Debugger is active!
+2023-05-02 15:07:39 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-02 15:14:52 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-02 15:14:52 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-02 15:14:52 [INFO] -  * Restarting with stat
+2023-05-02 15:14:53 [WARNING] -  * Debugger is active!
+2023-05-02 15:14:53 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-02 15:15:46 [INFO] - 127.0.0.1 - - [02/May/2023 15:15:46] "GET /login HTTP/1.1" 200 -
+2023-05-02 15:18:04 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 17:24:55 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 17:24:55 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 17:24:55 [INFO] -  * Restarting with stat
+2023-05-05 17:24:57 [WARNING] -  * Debugger is active!
+2023-05-05 17:24:57 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 17:25:22 [INFO] - The CSRF token has expired.
+2023-05-05 17:25:23 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:23] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:25:23 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:23] "[35m[1mGET /captcha HTTP/1.1[0m" 500 -
+2023-05-05 17:25:33 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:33] "[35m[1mGET /captcha?1683300333679 HTTP/1.1[0m" 500 -
+2023-05-05 17:25:34 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:34] "[35m[1mGET /captcha?1683300334293 HTTP/1.1[0m" 500 -
+2023-05-05 17:25:35 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:35] "[35m[1mGET /captcha?1683300335163 HTTP/1.1[0m" 500 -
+2023-05-05 17:25:36 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:36] "[35m[1mGET /captcha?1683300335764 HTTP/1.1[0m" 500 -
+2023-05-05 17:25:36 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:36] "[35m[1mGET /captcha?1683300336978 HTTP/1.1[0m" 500 -
+2023-05-05 17:25:38 [INFO] - 127.0.0.1 - - [05/May/2023 17:25:38] "[35m[1mGET /captcha?1683300337713 HTTP/1.1[0m" 500 -
+2023-05-05 17:26:52 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 17:27:36 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 17:27:36 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 17:27:36 [INFO] -  * Restarting with stat
+2023-05-05 17:27:37 [WARNING] -  * Debugger is active!
+2023-05-05 17:27:37 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 17:27:44 [INFO] - The CSRF token has expired.
+2023-05-05 17:27:44 [INFO] - 127.0.0.1 - - [05/May/2023 17:27:44] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:27:44 [INFO] - 127.0.0.1 - - [05/May/2023 17:27:44] "[35m[1mGET /captcha HTTP/1.1[0m" 500 -
+2023-05-05 17:27:45 [INFO] - 127.0.0.1 - - [05/May/2023 17:27:45] "[35m[1mGET /captcha?1683300465776 HTTP/1.1[0m" 500 -
+2023-05-05 17:27:46 [INFO] - 127.0.0.1 - - [05/May/2023 17:27:46] "[35m[1mGET /captcha?1683300466412 HTTP/1.1[0m" 500 -
+2023-05-05 17:27:47 [INFO] - 127.0.0.1 - - [05/May/2023 17:27:47] "[35m[1mGET /captcha?1683300467432 HTTP/1.1[0m" 500 -
+2023-05-05 17:27:49 [INFO] - 127.0.0.1 - - [05/May/2023 17:27:49] "[35m[1mGET /captcha?1683300469570 HTTP/1.1[0m" 500 -
+2023-05-05 17:27:51 [INFO] - 127.0.0.1 - - [05/May/2023 17:27:51] "[35m[1mGET /captcha?1683300471528 HTTP/1.1[0m" 500 -
+2023-05-05 17:28:47 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 17:29:30 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 17:29:30 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 17:29:30 [INFO] -  * Restarting with stat
+2023-05-05 17:29:32 [WARNING] -  * Debugger is active!
+2023-05-05 17:29:32 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 17:29:35 [INFO] - The CSRF token has expired.
+2023-05-05 17:29:35 [INFO] - 127.0.0.1 - - [05/May/2023 17:29:35] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:29:35 [INFO] - 127.0.0.1 - - [05/May/2023 17:29:35] "[35m[1mGET /captcha HTTP/1.1[0m" 500 -
+2023-05-05 17:29:43 [INFO] - 127.0.0.1 - - [05/May/2023 17:29:43] "[35m[1mGET /captcha?1683300583420 HTTP/1.1[0m" 500 -
+2023-05-05 17:30:37 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 17:31:01 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 17:31:01 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 17:31:01 [INFO] -  * Restarting with stat
+2023-05-05 17:31:02 [WARNING] -  * Debugger is active!
+2023-05-05 17:31:02 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 17:31:22 [INFO] - The CSRF token has expired.
+2023-05-05 17:31:22 [INFO] - 127.0.0.1 - - [05/May/2023 17:31:22] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:31:22 [INFO] - 127.0.0.1 - - [05/May/2023 17:31:22] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:33:49 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 17:33:49 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 17:33:49 [INFO] -  * Restarting with stat
+2023-05-05 17:33:51 [WARNING] -  * Debugger is active!
+2023-05-05 17:33:51 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 17:33:52 [INFO] - The CSRF token has expired.
+2023-05-05 17:33:52 [INFO] - 127.0.0.1 - - [05/May/2023 17:33:52] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:33:52 [INFO] - 127.0.0.1 - - [05/May/2023 17:33:52] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:34:21 [INFO] - 127.0.0.1 - - [05/May/2023 17:34:21] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:34:21 [INFO] - 127.0.0.1 - - [05/May/2023 17:34:21] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:34:45 [INFO] - 127.0.0.1 - - [05/May/2023 17:34:45] "[32mPOST /login HTTP/1.1[0m" 302 -
+2023-05-05 17:34:45 [INFO] - 127.0.0.1 - - [05/May/2023 17:34:45] "GET /dashboard HTTP/1.1" 200 -
+2023-05-05 17:40:09 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 17:40:09 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 17:40:09 [INFO] -  * Restarting with stat
+2023-05-05 17:40:10 [WARNING] -  * Debugger is active!
+2023-05-05 17:40:10 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 17:40:18 [INFO] - 127.0.0.1 - - [05/May/2023 17:40:18] "GET /login HTTP/1.1" 200 -
+2023-05-05 17:40:18 [INFO] - 127.0.0.1 - - [05/May/2023 17:40:18] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:40:39 [INFO] - 127.0.0.1 - - [05/May/2023 17:40:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2023-05-05 17:40:39 [INFO] - 127.0.0.1 - - [05/May/2023 17:40:39] "GET /dashboard HTTP/1.1" 200 -
+2023-05-05 17:40:46 [INFO] - 127.0.0.1 - - [05/May/2023 17:40:46] "[31m[1mPOST /logout HTTP/1.1[0m" 405 -
+2023-05-05 17:41:36 [INFO] - 127.0.0.1 - - [05/May/2023 17:41:36] "GET /login HTTP/1.1" 200 -
+2023-05-05 17:41:36 [INFO] - 127.0.0.1 - - [05/May/2023 17:41:36] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:41:49 [INFO] - 127.0.0.1 - - [05/May/2023 17:41:49] "[32mPOST /login HTTP/1.1[0m" 302 -
+2023-05-05 17:41:49 [INFO] - 127.0.0.1 - - [05/May/2023 17:41:49] "GET /dashboard HTTP/1.1" 200 -
+2023-05-05 17:41:54 [INFO] - The CSRF token is missing.
+2023-05-05 17:41:54 [INFO] - 127.0.0.1 - - [05/May/2023 17:41:54] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:41:54 [INFO] - 127.0.0.1 - - [05/May/2023 17:41:54] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:41:59 [INFO] - 127.0.0.1 - - [05/May/2023 17:41:59] "GET /captcha?1683301318959 HTTP/1.1" 200 -
+2023-05-05 17:42:44 [INFO] - The CSRF token is missing.
+2023-05-05 17:42:44 [INFO] - 127.0.0.1 - - [05/May/2023 17:42:44] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:42:45 [INFO] - 127.0.0.1 - - [05/May/2023 17:42:45] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:42:53 [INFO] - 127.0.0.1 - - [05/May/2023 17:42:53] "[32mPOST /login HTTP/1.1[0m" 302 -
+2023-05-05 17:42:53 [INFO] - 127.0.0.1 - - [05/May/2023 17:42:53] "GET /dashboard HTTP/1.1" 200 -
+2023-05-05 17:42:58 [INFO] - The CSRF token is missing.
+2023-05-05 17:42:58 [INFO] - 127.0.0.1 - - [05/May/2023 17:42:58] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:42:59 [INFO] - 127.0.0.1 - - [05/May/2023 17:42:59] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 17:43:12 [INFO] - 127.0.0.1 - - [05/May/2023 17:43:12] "POST /login HTTP/1.1" 200 -
+2023-05-05 17:43:12 [INFO] - 127.0.0.1 - - [05/May/2023 17:43:12] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 18:03:58 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 18:04:09 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 18:04:09 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 18:04:09 [INFO] -  * Restarting with stat
+2023-05-05 18:04:10 [WARNING] -  * Debugger is active!
+2023-05-05 18:04:10 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 18:04:12 [INFO] - 127.0.0.1 - - [05/May/2023 18:04:12] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2023-05-05 18:04:12 [INFO] - 127.0.0.1 - - [05/May/2023 18:04:12] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2023-05-05 18:04:12 [INFO] - 127.0.0.1 - - [05/May/2023 18:04:12] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2023-05-05 18:04:12 [INFO] - 127.0.0.1 - - [05/May/2023 18:04:12] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-05-05 18:04:13 [INFO] - 127.0.0.1 - - [05/May/2023 18:04:13] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2023-05-05 18:05:37 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 18:06:01 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 18:06:01 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 18:06:01 [INFO] -  * Restarting with stat
+2023-05-05 18:06:03 [WARNING] -  * Debugger is active!
+2023-05-05 18:06:03 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 18:06:04 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:04] "POST /login HTTP/1.1" 200 -
+2023-05-05 18:06:04 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:04] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 18:06:10 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:10] "POST /login HTTP/1.1" 200 -
+2023-05-05 18:06:11 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:11] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 18:06:31 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2023-05-05 18:06:31 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:31] "GET /dashboard HTTP/1.1" 200 -
+2023-05-05 18:06:35 [INFO] - The CSRF token is missing.
+2023-05-05 18:06:35 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:35] "POST /login HTTP/1.1" 200 -
+2023-05-05 18:06:36 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:36] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 18:06:44 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:44] "GET /dashboard HTTP/1.1" 200 -
+2023-05-05 18:06:49 [INFO] - The CSRF token is missing.
+2023-05-05 18:06:49 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:49] "POST /login HTTP/1.1" 200 -
+2023-05-05 18:06:49 [INFO] - 127.0.0.1 - - [05/May/2023 18:06:49] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 19:40:29 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 19:40:29 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 19:40:29 [INFO] -  * Restarting with stat
+2023-05-05 19:40:30 [WARNING] -  * Debugger is active!
+2023-05-05 19:40:30 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 19:41:21 [INFO] - 127.0.0.1 - - [05/May/2023 19:41:21] "GET /dashboard HTTP/1.1" 200 -
+2023-05-05 19:41:24 [INFO] - The CSRF token is missing.
+2023-05-05 19:41:24 [INFO] - 127.0.0.1 - - [05/May/2023 19:41:24] "POST /login HTTP/1.1" 200 -
+2023-05-05 19:41:24 [INFO] - 127.0.0.1 - - [05/May/2023 19:41:24] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 21:45:27 [INFO] - 127.0.0.1 - - [05/May/2023 21:45:27] "GET /captcha?1683315927284 HTTP/1.1" 200 -
+2023-05-05 21:45:28 [INFO] - 127.0.0.1 - - [05/May/2023 21:45:28] "GET /captcha?1683315928184 HTTP/1.1" 200 -
+2023-05-05 21:50:46 [INFO] - 127.0.0.1 - - [05/May/2023 21:50:46] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-05-05 21:59:11 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:13:29 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:13:29 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:13:29 [INFO] -  * Restarting with stat
+2023-05-05 22:13:31 [WARNING] -  * Debugger is active!
+2023-05-05 22:13:31 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:13:43 [INFO] - The CSRF token is missing.
+2023-05-05 22:13:43 [INFO] - 127.0.0.1 - - [05/May/2023 22:13:43] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:13:51 [INFO] - 127.0.0.1 - - [05/May/2023 22:13:51] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:13:57 [INFO] - 127.0.0.1 - - [05/May/2023 22:13:57] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:16:21 [INFO] - 127.0.0.1 - - [05/May/2023 22:16:21] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:16:31 [INFO] - 127.0.0.1 - - [05/May/2023 22:16:31] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:16:35 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-05-05 22:16:35 [INFO] - 127.0.0.1 - - [05/May/2023 22:16:35] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 22:16:40 [INFO] - 127.0.0.1 - - [05/May/2023 22:16:40] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 22:19:28 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:19:28 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:19:28 [INFO] -  * Restarting with stat
+2023-05-05 22:19:29 [WARNING] -  * Debugger is active!
+2023-05-05 22:19:29 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:19:31 [INFO] - 127.0.0.1 - - [05/May/2023 22:19:31] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:19:37 [INFO] - 127.0.0.1 - - [05/May/2023 22:19:37] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:23:51 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:24:05 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:24:05 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:24:05 [INFO] -  * Restarting with stat
+2023-05-05 22:24:06 [WARNING] -  * Debugger is active!
+2023-05-05 22:24:06 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:24:11 [INFO] - 127.0.0.1 - - [05/May/2023 22:24:11] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:24:15 [INFO] - 127.0.0.1 - - [05/May/2023 22:24:15] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:24:19 [INFO] - 127.0.0.1 - - [05/May/2023 22:24:19] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:35:20 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:35:59 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:35:59 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:35:59 [INFO] -  * Restarting with stat
+2023-05-05 22:36:00 [WARNING] -  * Debugger is active!
+2023-05-05 22:36:00 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:36:04 [INFO] - 127.0.0.1 - - [05/May/2023 22:36:04] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:36:10 [INFO] - 127.0.0.1 - - [05/May/2023 22:36:10] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:36:24 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:36:55 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:36:55 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:36:55 [INFO] -  * Restarting with stat
+2023-05-05 22:36:56 [WARNING] -  * Debugger is active!
+2023-05-05 22:36:56 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:37:00 [INFO] - 127.0.0.1 - - [05/May/2023 22:37:00] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:37:57 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:38:44 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:38:44 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:38:44 [INFO] -  * Restarting with stat
+2023-05-05 22:38:45 [WARNING] -  * Debugger is active!
+2023-05-05 22:38:45 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:38:48 [INFO] - 127.0.0.1 - - [05/May/2023 22:38:48] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:38:48 [INFO] - 127.0.0.1 - - [05/May/2023 22:38:48] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 22:38:54 [INFO] - 127.0.0.1 - - [05/May/2023 22:38:54] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:38:54 [INFO] - 127.0.0.1 - - [05/May/2023 22:38:54] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 22:39:17 [INFO] - 127.0.0.1 - - [05/May/2023 22:39:17] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:39:17 [INFO] - 127.0.0.1 - - [05/May/2023 22:39:17] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 22:50:45 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:53:20 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:53:20 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:53:20 [INFO] -  * Restarting with stat
+2023-05-05 22:53:22 [WARNING] -  * Debugger is active!
+2023-05-05 22:53:22 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:53:25 [INFO] - 127.0.0.1 - - [05/May/2023 22:53:25] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:53:34 [INFO] - 127.0.0.1 - - [05/May/2023 22:53:34] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:53:36 [INFO] - 127.0.0.1 - - [05/May/2023 22:53:36] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:53:38 [INFO] - 127.0.0.1 - - [05/May/2023 22:53:38] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:53:40 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-05-05 22:53:40 [INFO] - 127.0.0.1 - - [05/May/2023 22:53:40] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 22:54:26 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:54:29 [INFO] - 127.0.0.1 - - [05/May/2023 22:54:29] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 22:54:40 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:54:40 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:54:40 [INFO] -  * Restarting with stat
+2023-05-05 22:54:41 [WARNING] -  * Debugger is active!
+2023-05-05 22:54:41 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:54:45 [INFO] - 127.0.0.1 - - [05/May/2023 22:54:45] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:54:54 [INFO] - 127.0.0.1 - - [05/May/2023 22:54:54] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:54:58 [INFO] - 127.0.0.1 - - [05/May/2023 22:54:58] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:55:05 [INFO] - 127.0.0.1 - - [05/May/2023 22:55:05] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:55:07 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-05-05 22:55:07 [INFO] - 127.0.0.1 - - [05/May/2023 22:55:07] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 22:55:14 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:56:16 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:56:16 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:56:16 [INFO] -  * Restarting with stat
+2023-05-05 22:56:18 [WARNING] -  * Debugger is active!
+2023-05-05 22:56:18 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:56:22 [INFO] - 127.0.0.1 - - [05/May/2023 22:56:22] "GET /login HTTP/1.1" 200 -
+2023-05-05 22:56:29 [INFO] - 127.0.0.1 - - [05/May/2023 22:56:29] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:56:34 [INFO] - 127.0.0.1 - - [05/May/2023 22:56:34] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:56:39 [INFO] - 127.0.0.1 - - [05/May/2023 22:56:39] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:56:46 [INFO] - 127.0.0.1 - - [05/May/2023 22:56:46] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:56:50 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-05-05 22:56:50 [INFO] - 127.0.0.1 - - [05/May/2023 22:56:50] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 22:57:55 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:58:14 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:58:14 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:58:14 [INFO] -  * Restarting with stat
+2023-05-05 22:58:15 [WARNING] -  * Debugger is active!
+2023-05-05 22:58:15 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:58:17 [INFO] - 127.0.0.1 - - [05/May/2023 22:58:17] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:58:26 [INFO] - 127.0.0.1 - - [05/May/2023 22:58:26] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:58:28 [INFO] - 127.0.0.1 - - [05/May/2023 22:58:28] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:58:29 [INFO] - 127.0.0.1 - - [05/May/2023 22:58:29] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:58:31 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-05-05 22:58:31 [INFO] - 127.0.0.1 - - [05/May/2023 22:58:31] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 22:59:08 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-05 22:59:22 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 22:59:22 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 22:59:22 [INFO] -  * Restarting with stat
+2023-05-05 22:59:23 [WARNING] -  * Debugger is active!
+2023-05-05 22:59:23 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 22:59:24 [INFO] - 127.0.0.1 - - [05/May/2023 22:59:24] "GET /login HTTP/1.1" 200 -
+2023-05-05 22:59:29 [INFO] - 127.0.0.1 - - [05/May/2023 22:59:29] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:59:31 [INFO] - 127.0.0.1 - - [05/May/2023 22:59:31] "POST /login HTTP/1.1" 200 -
+2023-05-05 22:59:36 [INFO] - 127.0.0.1 - - [05/May/2023 22:59:36] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:01:02 [INFO] - 127.0.0.1 - - [05/May/2023 23:01:02] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:01:04 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-05-05 23:01:04 [INFO] - 127.0.0.1 - - [05/May/2023 23:01:04] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 23:02:52 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading
+2023-05-05 23:04:50 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 23:04:50 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 23:04:50 [INFO] -  * Restarting with stat
+2023-05-05 23:04:51 [WARNING] -  * Debugger is active!
+2023-05-05 23:04:51 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 23:04:53 [INFO] - 127.0.0.1 - - [05/May/2023 23:04:53] "GET /login HTTP/1.1" 200 -
+2023-05-05 23:04:58 [INFO] - 127.0.0.1 - - [05/May/2023 23:04:58] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:05:00 [INFO] - 127.0.0.1 - - [05/May/2023 23:05:00] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:05:01 [INFO] - 127.0.0.1 - - [05/May/2023 23:05:01] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:05:03 [INFO] - 127.0.0.1 - - [05/May/2023 23:05:03] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:05:05 [INFO] - 127.0.0.1 - - [05/May/2023 23:05:05] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:05:06 [INFO] - 127.0.0.1 - - [05/May/2023 23:05:06] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:05:08 [INFO] - 127.0.0.1 - - [05/May/2023 23:05:08] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:05:09 [WARNING] - Brute force attack detected for Account: 'test@test.fr' from IP: '127.0.0.1'
+2023-05-05 23:05:09 [INFO] - 127.0.0.1 - - [05/May/2023 23:05:09] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-05 23:05:23 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading
+2023-05-05 23:25:51 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 23:25:51 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 23:25:51 [INFO] -  * Restarting with stat
+2023-05-05 23:25:52 [WARNING] -  * Debugger is active!
+2023-05-05 23:25:52 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 23:26:17 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-05-05 23:26:17 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-05 23:26:17 [INFO] -  * Restarting with stat
+2023-05-05 23:26:18 [WARNING] -  * Debugger is active!
+2023-05-05 23:26:18 [INFO] -  * Debugger PIN: 108-837-551
+2023-05-05 23:26:18 [INFO] - 127.0.0.1 - - [05/May/2023 23:26:18] "GET /login HTTP/1.1" 200 -
+2023-05-05 23:26:18 [INFO] - 127.0.0.1 - - [05/May/2023 23:26:18] "GET /login HTTP/1.1" 200 -
+2023-05-05 23:26:18 [INFO] - 127.0.0.1 - - [05/May/2023 23:26:18] "GET /captcha HTTP/1.1" 200 -
+2023-05-05 23:26:26 [INFO] - 127.0.0.1 - - [05/May/2023 23:26:26] "POST /login HTTP/1.1" 200 -
+2023-05-05 23:26:26 [INFO] - 127.0.0.1 - - [05/May/2023 23:26:26] "GET /captcha HTTP/1.1" 200 -

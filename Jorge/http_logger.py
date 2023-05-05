@@ -1,5 +1,7 @@
 import time
 import re
+import urllib.parse
+import base64
 from functools import wraps
 from flask import request, abort
 import logging
@@ -9,10 +11,10 @@ from scapy.all import *
 failed_attempts = {}
 
 # Nombre de tentatives de connexion échouées autorisées avant le blocage
-max_attempts = 5
+max_attempts = 7
 
 # Temps en secondes avant qu'une tentative de connexion échouée expire
-block_duration = 300
+block_duration = 200
 
 # Dictionnaire pour stocker les adresses IP bloquées et leurs temps de déblocage
 blocked_ips = {}
@@ -38,6 +40,23 @@ def is_ip_blocked(client_ip):
 def block_ip(client_ip):
     blocked_ips[client_ip] = time.time() + block_duration_ip
 
+def decode_encoded_string(input_string):
+    decoded_string = input_string
+
+    # Décoder l'encodage URL
+    try:
+        decoded_string = urllib.parse.unquote(decoded_string)
+    except Exception:
+        pass
+
+    # Décoder l'encodage Base64
+    try:
+        decoded_string = base64.b64decode(decoded_string).decode('utf-8')
+    except Exception:
+        pass
+
+    return decoded_string
+
 
 def detect_bruteforce_attack(username):
     current_time = int(time.time())
@@ -60,7 +79,10 @@ def detect_xss(input_string):
     return bool(re.search(xss_pattern, input_string))
 
 def detect_sql_injection(input_data):
+    decoded_input_data = decode_encoded_string(input_data)
     if sql_injection_pattern.search(input_data):
+        return True
+    elif sql_injection_pattern.search(decoded_input_data):
         return True
     return False
 
@@ -78,6 +100,7 @@ def detect_metasploit(pkt):
                 logging.warning(f"Cybersecurity agent Metasploit detected from IP '{client_ip}'")
                 block_ip(client_ip)
                 abort(400, description="Access denied.")
+
 
 def log_and_protect(func):
     @wraps(func)

@@ -1,9 +1,22 @@
-from flask import Flask, render_template, url_for, redirect, flash
+from flask import Flask, render_template, url_for, redirect, flash, session, make_response, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from forms import LoginForm, RegisterForm
-from http_logger import log_and_protect
+from http_logger import log_and_protect, detect_metasploit
 import logging
+import threading
+from scapy.all import sniff
+from flask_limiter import Limiter
+from io import BytesIO
+from captcha.image import ImageCaptcha
+from flask_limiter.util import get_remote_address
+import random
+import string
+
+
+
+def run_sniffer():
+    sniff(filter="tcp port 4444 or tcp port 4445", prn=detect_metasploit)
 
 logging.basicConfig(filename='http_requests.log',
                     level=logging.INFO,
@@ -15,13 +28,20 @@ logging.basicConfig(filename='http_requests.log',
 app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+# SQLALCHEMY_TRACK_MODIFICATIONS = False
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 
+limiter = Limiter(
+    key_func=get_remote_address, # Utilise l'adresse IP du client pour limiter le débit
+    default_limits=["200 per day", "50 per hour"] # Limite le nombre de requêtes par jour et par heure
+)
+limiter.init_app(app)
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
+    username = db.Column(db.String(15), unique=True, nullable=False)
     password = db.Column(db.String(120), nullable=False)
 
 @login_manager.user_loader
@@ -30,6 +50,7 @@ def load_user(user_id):
 
 @app.route('/login', methods=['GET', 'POST'])
 @log_and_protect
+@limiter.limit("5 per minute")  # Limite le nombre de requêtes par minute
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -56,16 +77,38 @@ def register():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return f"Welcome, {current_user.username}!"
-
+    return render_template('dashboard.html', current_user=current_user)
+    
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
 
+@app.route('/captcha')
+def captcha():
+    captcha_text = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
+    session['captcha'] = captcha_text
+    
+    image = ImageCaptcha()
+    data = BytesIO()
+    image.write(captcha_text, data)
+    data.seek(0)
+    
+    response = make_response(send_file(data, mimetype='image/png'))
+    response.cache_control.no_cache = True
+    response.cache_control.no_store = True
+    response.cache_control.must_revalidate = True
+    response.expires = 0
+    response.pragma = 'no-cache'
+
+    return response
+
+
 if __name__ == '__main__':
     with app.app_context():
    	 db.create_all()
+    sniffer_thread = threading.Thread(target=run_sniffer)
+    sniffer_thread.start()
     app.run(debug=True)
 
