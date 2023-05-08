@@ -12,6 +12,7 @@ from captcha.image import ImageCaptcha
 from flask_limiter.util import get_remote_address
 import random
 import string
+from datetime import timedelta
 
 
 
@@ -28,6 +29,7 @@ logging.basicConfig(filename='http_requests.log',
 app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
 # SQLALCHEMY_TRACK_MODIFICATIONS = False
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
@@ -50,7 +52,7 @@ def load_user(user_id):
 
 @app.route('/login', methods=['GET', 'POST'])
 @log_and_protect
-@limiter.limit("5 per minute")  # Limite le nombre de requêtes par minute
+@limiter.limit("15 per minute")  # Limite le nombre de requêtes par minute
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -83,6 +85,8 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
+    session.clear()  # Supprime le contenu de la session
+    session.pop('_flashes', None)  # Supprime les messages flash de la session
     return redirect(url_for('login'))
 
 @app.route('/captcha')
@@ -104,6 +108,15 @@ def captcha():
 
     return response
 
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            flash('Vous devez être connecté pour accéder à cette page.', 'danger')
+            return redirect(url_for('login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
 
 if __name__ == '__main__':
     with app.app_context():
