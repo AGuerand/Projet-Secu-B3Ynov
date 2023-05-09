@@ -3,10 +3,27 @@ import re
 import urllib.parse
 import base64
 from functools import wraps
-from flask import request, abort
+from flask import request, abort, Flask
+from flask_mail import Mail, Message
 import logging
 import re
 from scapy.all import *
+
+app = Flask(__name__)
+mail = Mail(app)
+
+def create_app():
+    app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
+    app.config['MAIL_PORT'] = 2525
+    app.config['MAIL_USERNAME'] = 'c5780b3c580502'
+    app.config['MAIL_PASSWORD'] = '32b8e070eab6c0'
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USE_SSL'] = False
+
+    mail.init_app(app)
+
+    return app
+
 # Dictionnaire pour stocker les tentatives de connexion échouées
 failed_attempts = {}
 
@@ -99,7 +116,7 @@ def detect_metasploit(pkt):
         client_ip = request.remote_addr
         if pkt[TCP].dport == 4444 or pkt[TCP].dport == 4445:
             if "metasploit" in str(pkt[TCP].payload).lower():
-                print("Metasploit traffic detected!")
+                print("Metasploit traffic detected!")          
                 logging.warning(f"Cybersecurity agent Metasploit detected from IP '{client_ip}'")
                 block_ip(client_ip)
                 abort(400, description="Access denied.")
@@ -121,25 +138,40 @@ def log_and_protect(func):
         
         if is_ip_blocked(client_ip):
             abort(429, description="Your IP is temporarily blocked. Please try again later.")
+            msg = Message('Ip blocked', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+            msg.body = f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'"
+            mail.send(msg)
             logging.warning(f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'")
 
         if detect_cybersecurity_agents(user_agent):
+            msg = Message('Agents detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+            msg.body = f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'"
+            mail.send(msg)
             logging.warning(f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'")
             block_ip(client_ip)
             abort(400, description="Access denied.")
 
         if username and password:
             if detect_bruteforce_attack(username):
+                msg = Message('Bruteforce detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+                msg.body = f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'"
+                mail.send(msg)
                 logging.warning(f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'")
                 block_ip(client_ip)
                 abort(429, description="Too many failed attempts. Please try again later.")
 
             if detect_sql_injection(username) or detect_sql_injection(password):
+                msg = Message(subject= 'SQL Injection detected', sender ='idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+                msg.body = f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
+                mail.send(msg)
                 logging.warning(f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
 
             if detect_xss(username) or detect_xss(password):
+                msg = Message('XSS detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+                msg.body = f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
+                mail.send(msg)
                 logging.warning(f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
