@@ -124,4 +124,5 @@ if __name__ == '__main__':
     sniffer_thread = threading.Thread(target=run_sniffer)
     sniffer_thread.start()
     app.run(debug=True)
+    # app.run(host='0.0.0.0', debug=True)
 
