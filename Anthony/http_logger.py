@@ -116,10 +116,7 @@ def detect_metasploit(pkt):
         client_ip = request.remote_addr
         if pkt[TCP].dport == 4444 or pkt[TCP].dport == 4445:
             if "metasploit" in str(pkt[TCP].payload).lower():
-                print("Metasploit traffic detected!")
-                msg = Message('Metasploit detected', sender =   'idsynov@gmail', recipients = ['ids@gmail.com'])
-                msg.body = f"Cybersecurity agent Metasploit detected from IP '{client_ip}'"
-                mail.send(msg)
+                print("Metasploit traffic detected!")          
                 logging.warning(f"Cybersecurity agent Metasploit detected from IP '{client_ip}'")
                 block_ip(client_ip)
                 abort(400, description="Access denied.")
