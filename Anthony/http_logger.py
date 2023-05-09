@@ -10,19 +10,16 @@ import re
 from scapy.all import *
 
 app = Flask(__name__)
-mail = Mail()
 
-def create_app():
-    app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
-    app.config['MAIL_PORT'] = 2525
-    app.config['MAIL_USERNAME'] = 'c5780b3c580502'
-    app.config['MAIL_PASSWORD'] = '32b8e070eab6c0'
-    app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 2525
+app.config['MAIL_USERNAME'] = 'c5780b3c580502'
+app.config['MAIL_PASSWORD'] = '32b8e070eab6c0'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
 
-    mail.init_app(app)
+mail = Mail(app)
 
-    return app
 
 # Dictionnaire pour stocker les tentatives de connexion échouées
 failed_attempts = {}
