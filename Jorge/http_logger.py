@@ -144,34 +144,34 @@ def log_and_protect(func):
             logging.warning(f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'")
 
         if detect_cybersecurity_agents(user_agent):
-            msg = Message('Agents detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-            msg.body = f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'"
-            mail.send(msg)
+            # msg = Message('Agents detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+            # msg.body = f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'"
+            # mail.send(msg)
             logging.warning(f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'")
             block_ip(client_ip)
             abort(400, description="Access denied.")
 
         if username and password:
             if detect_bruteforce_attack(username):
-                msg = Message('Bruteforce detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-                msg.body = f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'"
-                mail.send(msg)
+                # msg = Message('Bruteforce detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+                # msg.body = f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'"
+                # mail.send(msg)
                 logging.warning(f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'")
                 block_ip(client_ip)
                 abort(429, description="Too many failed attempts. Please try again later.")
 
             if detect_sql_injection(username) or detect_sql_injection(password):
-                msg = Message(subject= 'SQL Injection detected', sender ='idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-                msg.body = f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
-                mail.send(msg)
+                # msg = Message(subject= 'SQL Injection detected', sender ='idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+                # msg.body = f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
+                # mail.send(msg)
                 logging.warning(f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
 
             if detect_xss(username) or detect_xss(password):
-                msg = Message('XSS detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-                msg.body = f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
-                mail.send(msg)
+                # msg = Message('XSS detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+                # msg.body = f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
+                # mail.send(msg)
                 logging.warning(f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
