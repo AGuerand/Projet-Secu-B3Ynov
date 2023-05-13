@@ -12,7 +12,7 @@ RUN apt-get update && \
 COPY requirements.txt .
 
 # Installer les dépendances du projet
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Copier les fichiers du projet dans le conteneur
 COPY . .

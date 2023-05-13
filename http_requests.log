@@ -562,3 +562,96 @@
 2023-05-09 12:12:06 [INFO] - 127.0.0.1 - - [09/May/2023 12:12:06] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
 2023-05-09 12:12:06 [INFO] - 127.0.0.1 - - [09/May/2023 12:12:06] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
 2023-05-09 12:16:57 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading
+2023-05-12 12:25:53 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.87:5000
+2023-05-12 12:25:53 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-12 12:25:53 [INFO] -  * Restarting with stat
+2023-05-12 12:25:54 [WARNING] -  * Debugger is active!
+2023-05-12 12:25:54 [INFO] -  * Debugger PIN: 747-273-879
+2023-05-12 12:26:55 [INFO] - 127.0.0.1 - - [12/May/2023 12:26:55] "GET /login HTTP/1.1" 200 -
+2023-05-12 12:26:55 [INFO] - 127.0.0.1 - - [12/May/2023 12:26:55] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2023-05-12 12:26:55 [INFO] - 127.0.0.1 - - [12/May/2023 12:26:55] "GET /captcha HTTP/1.1" 200 -
+2023-05-12 12:26:55 [INFO] - 127.0.0.1 - - [12/May/2023 12:26:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-05-12 12:27:04 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:04] "POST /login HTTP/1.1" 200 -
+2023-05-12 12:27:04 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:04] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2023-05-12 12:27:04 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:04] "GET /captcha HTTP/1.1" 200 -
+2023-05-12 12:27:18 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:18] "[32mPOST /login HTTP/1.1[0m" 302 -
+2023-05-12 12:27:18 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:18] "GET /dashboard HTTP/1.1" 200 -
+2023-05-12 12:27:22 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:22] "[32mGET /logout HTTP/1.1[0m" 302 -
+2023-05-12 12:27:23 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:23] "GET /login HTTP/1.1" 200 -
+2023-05-12 12:27:23 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:23] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2023-05-12 12:27:23 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:23] "GET /captcha HTTP/1.1" 200 -
+2023-05-12 12:27:29 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:29] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2023-05-12 12:27:30 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:30] "GET /login?next=/dashboard HTTP/1.1" 200 -
+2023-05-12 12:27:30 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:30] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2023-05-12 12:27:30 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:30] "GET /captcha HTTP/1.1" 200 -
+2023-05-12 12:27:51 [WARNING] - SQL injection detected from IP: '127.0.0.1'. Account: 'or 1=1', Password: 'fdgg'
+2023-05-12 12:27:51 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:51] "[31m[1mPOST /login?next=/dashboard HTTP/1.1[0m" 400 -
+2023-05-12 12:27:57 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:57] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+2023-05-12 12:27:57 [INFO] - 127.0.0.1 - - [12/May/2023 12:27:57] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+2023-05-12 12:29:18 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading
+2023-05-12 12:39:26 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.87:5000
+2023-05-12 12:39:26 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-12 12:39:26 [INFO] -  * Restarting with stat
+2023-05-12 12:39:27 [WARNING] -  * Debugger is active!
+2023-05-12 12:39:27 [INFO] -  * Debugger PIN: 747-273-879
+2023-05-12 12:39:33 [INFO] - 127.0.0.1 - - [12/May/2023 12:39:33] "[33mGET /captcha_page/test@test.fr HTTP/1.1[0m" 404 -
+2023-05-12 12:39:39 [INFO] - 127.0.0.1 - - [12/May/2023 12:39:39] "GET /captcha HTTP/1.1" 200 -
+2023-05-12 12:43:27 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\app.py', reloading
+2023-05-13 14:44:45 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.87:5000
+2023-05-13 14:44:45 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-13 14:44:45 [INFO] -  * Restarting with stat
+2023-05-13 14:44:47 [WARNING] -  * Debugger is active!
+2023-05-13 14:44:47 [INFO] -  * Debugger PIN: 125-883-678
+2023-05-13 14:44:59 [INFO] - 127.0.0.1 - - [13/May/2023 14:44:59] "GET /login HTTP/1.1" 200 -
+2023-05-13 14:44:59 [INFO] - 127.0.0.1 - - [13/May/2023 14:44:59] "GET /captcha HTTP/1.1" 200 -
+2023-05-13 14:44:59 [INFO] - 127.0.0.1 - - [13/May/2023 14:44:59] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2023-05-13 14:44:59 [INFO] - 127.0.0.1 - - [13/May/2023 14:44:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-05-13 14:45:36 [WARNING] - SQL injection detected from IP: '127.0.0.1'. Account: 'or 1=1', Password: 'efef'
+2023-05-13 14:45:36 [INFO] - file_cache is only supported with oauth2client<4.0.0
+2023-05-13 14:45:37 [INFO] - 127.0.0.1 - - [13/May/2023 14:45:37] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2023-05-13 14:45:41 [WARNING] - This IP: '127.0.0.1' try to connect againt to this Account: 'None'
+2023-05-13 14:45:41 [INFO] - 127.0.0.1 - - [13/May/2023 14:45:41] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+2023-05-13 14:48:16 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading
+2023-05-13 14:55:11 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.87:5000
+2023-05-13 14:55:11 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-13 14:55:11 [INFO] -  * Restarting with stat
+2023-05-13 14:55:12 [WARNING] -  * Debugger is active!
+2023-05-13 14:55:12 [INFO] -  * Debugger PIN: 125-883-678
+2023-05-13 14:55:18 [INFO] - 127.0.0.1 - - [13/May/2023 14:55:18] "GET /login HTTP/1.1" 200 -
+2023-05-13 14:55:18 [INFO] - 127.0.0.1 - - [13/May/2023 14:55:18] "GET /captcha HTTP/1.1" 200 -
+2023-05-13 14:55:18 [INFO] - 127.0.0.1 - - [13/May/2023 14:55:18] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2023-05-13 14:55:45 [WARNING] - SQL injection detected from IP: '127.0.0.1'. Account: 'or 1=1', Password: 'freeg'
+2023-05-13 14:55:45 [INFO] - file_cache is only supported with oauth2client<4.0.0
+2023-05-13 14:55:46 [INFO] - 127.0.0.1 - - [13/May/2023 14:55:46] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2023-05-13 14:55:52 [WARNING] - This IP: '127.0.0.1' try to connect againt to this Account: 'None'
+2023-05-13 14:55:52 [INFO] - 127.0.0.1 - - [13/May/2023 14:55:52] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+2023-05-13 15:05:39 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading
+2023-05-13 15:12:45 [INFO] - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.87:5000
+2023-05-13 15:12:45 [INFO] - [33mPress CTRL+C to quit[0m
+2023-05-13 15:12:45 [INFO] -  * Restarting with stat
+2023-05-13 15:12:46 [WARNING] -  * Debugger is active!
+2023-05-13 15:12:46 [INFO] -  * Debugger PIN: 125-883-678
+2023-05-13 15:12:47 [INFO] - 127.0.0.1 - - [13/May/2023 15:12:47] "GET /login HTTP/1.1" 200 -
+2023-05-13 15:12:47 [INFO] - 127.0.0.1 - - [13/May/2023 15:12:47] "[33mGET /style.css HTTP/1.1[0m" 404 -
+2023-05-13 15:12:47 [INFO] - 127.0.0.1 - - [13/May/2023 15:12:47] "GET /captcha HTTP/1.1" 200 -
+2023-05-13 15:13:05 [WARNING] - SQL injection detected from IP : '127.0.0.1'. Account: 'or 1=1', Password: 'bgf'
+2023-05-13 15:13:05 [INFO] - file_cache is only supported with oauth2client<4.0.0
+2023-05-13 15:13:06 [INFO] - 127.0.0.1 - - [13/May/2023 15:13:06] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+2023-05-13 15:13:11 [WARNING] - This IP: '127.0.0.1' try to connect againt to this Account: 'or 1=1'
+2023-05-13 15:13:11 [INFO] - 127.0.0.1 - - [13/May/2023 15:13:11] "[31m[1mPOST /login HTTP/1.1[0m" 429 -
+2023-05-13 15:16:18 [INFO] -  * Detected change in 'C:\\Users\\jorge\\OneDrive\\Documents\\B3\\ProjetFinal\\Projet-Secu-B3Ynov\\Jorge\\http_logger.py', reloading

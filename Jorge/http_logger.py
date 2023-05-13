@@ -1,28 +1,54 @@
 import time
+from datetime import datetime
 import re
 import urllib.parse
 import base64
 from functools import wraps
 from flask import request, abort, Flask
-from flask_mail import Mail, Message
 import logging
 import re
 from scapy.all import *
+from googleapiclient.discovery import build
+from email.mime.text import MIMEText
+from google.oauth2.credentials import Credentials
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
+import base64
+import os
 
-app = Flask(__name__)
-mail = Mail(app)
+SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
-def create_app():
-    app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
-    app.config['MAIL_PORT'] = 2525
-    app.config['MAIL_USERNAME'] = 'c5780b3c580502'
-    app.config['MAIL_PASSWORD'] = '32b8e070eab6c0'
-    app.config['MAIL_USE_TLS'] = True
-    app.config['MAIL_USE_SSL'] = False
+#chemin du répertoire actuel
+creds = None
+# The file token.json stores the user's access and refresh tokens, and is
+# created automatically when the authorization flow completes for the first
+# time.
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
-    mail.init_app(app)
+if os.path.exists(os.path.join(current_dir, 'token.json')):
+    creds = Credentials.from_authorized_user_file(os.path.join(current_dir, 'token.json'))
+else:
+    flow = InstalledAppFlow.from_client_secrets_file(
+        os.path.join(current_dir, 'credentials.json'), SCOPES)
+    creds = flow.run_local_server(port=0)
+    # Save the credentials for the next run
+    with open(os.path.join(current_dir, 'token.json'), 'w') as token:
+        token.write(creds.to_json())
 
-    return app
+# app = Flask(__name__)
+# mail = Mail(app)
+
+# def create_app():
+#     app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
+#     app.config['MAIL_PORT'] = 2525
+#     app.config['MAIL_USERNAME'] = 'c5780b3c580502'
+#     app.config['MAIL_PASSWORD'] = '32b8e070eab6c0'
+#     app.config['MAIL_USE_TLS'] = True
+#     app.config['MAIL_USE_SSL'] = False
+
+#     mail.init_app(app)
+
+#     return app
 
 # Dictionnaire pour stocker les tentatives de connexion échouées
 failed_attempts = {}
@@ -40,12 +66,31 @@ block_duration = 200
 blocked_ips = {}
 
 # Expression régulière pour détecter les injections SQL
-# sql_injection_pattern = re.compile(r"('|\"|;|--|\b(?:SELECT|INSERT|UPDATE|DELETE|FROM|WHERE)\b)", re.IGNORECASE)  (Regex V1)
+
 # Regex V2 (+Puissant) from: https://regex101.com/library/qE9gR7
 sql_injection_pattern = re.compile(r"\s*([\0\b\'\"\n\r\t\%\_\\]*\s*(((select\s*.+\s*from\s*.+)|(insert\s*.+\s*into\s*.+)|(update\s*.+\s*set\s*.+)|(delete\s*.+\s*from\s*.+)|(drop\s*.+)|(truncate\s*.+)|(alter\s*.+)|(exec\s*.+)|(\s*(all|any|not|and|between|in|like|or|some|contains|containsall|containskey)\s*.+[\=\>\<=\!\~]+.+)|(let\s+.+[\=]\s*.*)|(begin\s*.*\s*end)|(\s*[\/\*]+\s*.*\s*[\*\/]+)|(\s*(\-\-)\s*.*\s+)|(\s*(contains|containsall|containskey)\s+.*)))(\s*[\;]\s*)*)+")
 
 # Durée de blocage en secondes
 block_duration_ip = 300
+
+
+# Récupére la date et l'heure actuelles
+now = datetime.now()
+current_time = now.strftime("%d/%m/%Y %H:%M:%S")
+
+# Adresse mail de reception des avertissement d'attaque
+mail_receptor = "jorgearturo@live.fr"
+
+def send_email(subject, body, to):
+    service = build('gmail', 'v1', credentials=creds)
+
+    message = MIMEText(body)
+    message['to'] = to
+    message['subject'] = subject
+    raw_message = base64.urlsafe_b64encode(message.as_bytes())
+    raw_message = raw_message.decode()
+
+    message = service.users().messages().send(userId="me", body={"raw": raw_message}).execute()
 
 def is_ip_blocked(client_ip):
     if client_ip in blocked_ips:
@@ -137,26 +182,31 @@ def log_and_protect(func):
         user_agent = request.headers.get('User-Agent')
         
         if is_ip_blocked(client_ip):
-            abort(429, description="Your IP is temporarily blocked. Please try again later.")
-            msg = Message('Ip blocked', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-            msg.body = f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'"
-            mail.send(msg)
             logging.warning(f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'")
+            abort(429, description="Your IP is temporarily blocked. Please try again later.")
+            # msg = Message('Ip blocked', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
+            # msg.body = f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'"
+            # mail.send(msg)
 
-        if detect_cybersecurity_agents(user_agent):
+        
+
+        if username and password:
+
+            if detect_cybersecurity_agents(user_agent):
             # msg = Message('Agents detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
             # msg.body = f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'"
             # mail.send(msg)
-            logging.warning(f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'")
-            block_ip(client_ip)
-            abort(400, description="Access denied.")
+                logging.warning(f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'")
+                send_email(subject="Attack attempt detected from your APP: Maybe Cyber Agent",body=f"Cybersecurity agent {user_agent} detected on your APP from This IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
+                block_ip(client_ip)
+                abort(400, description="Access denied.")
 
-        if username and password:
             if detect_bruteforce_attack(username):
                 # msg = Message('Bruteforce detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
                 # msg.body = f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'"
                 # mail.send(msg)
                 logging.warning(f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'")
+                send_email(subject="Attack attempt detected from your APP: BruteForce Attack",body=f"Brute force attack detected on your APP for Account: {username} from IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
                 block_ip(client_ip)
                 abort(429, description="Too many failed attempts. Please try again later.")
 
@@ -164,7 +214,8 @@ def log_and_protect(func):
                 # msg = Message(subject= 'SQL Injection detected', sender ='idsynov@gmail', recipients = ['jorgearturo@live.fr'])
                 # msg.body = f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
                 # mail.send(msg)
-                logging.warning(f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
+                logging.warning(f"SQL injection detected from IP : '{client_ip}'. Account: '{username}', Password: '{password}'")
+                send_email(subject="Attack attempt detected from your APP: SQL Injection Attack",body=f"SQL Inject attack detected on your APP for Account: {username} from IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
 
@@ -173,6 +224,7 @@ def log_and_protect(func):
                 # msg.body = f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
                 # mail.send(msg)
                 logging.warning(f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
+                send_email(subject="Attack attempt detected from your APP: XSS Attack",body=f"XSS attack detected on your APP for Account: {username} from IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
         # if username and password:

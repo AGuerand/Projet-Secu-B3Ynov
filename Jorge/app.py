@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, url_for, redirect, flash, session, make_response, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
@@ -13,7 +14,7 @@ from flask_limiter.util import get_remote_address
 import random
 import string
 from datetime import timedelta
-
+from flask_mail import Mail, Message
 
 
 def run_sniffer():
@@ -30,10 +31,17 @@ app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
+# app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USE_TLS'] = True
+# app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+# app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
+
 # SQLALCHEMY_TRACK_MODIFICATIONS = False
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+mail = Mail(app)
 
 limiter = Limiter(
     key_func=get_remote_address, # Utilise l'adresse IP du client pour limiter le débit
@@ -118,11 +126,20 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+# @app.route("/")
+# def index():
+#     msg = Message("Hello",
+#                   sender="from@example.com",
+#                   recipients=[os.environ.get('TO_EMAIL')])
+#     msg.body = "This is the email body"
+#     mail.send(msg)
+#     return "Message sent!"
+
 if __name__ == '__main__':
     with app.app_context():
    	 db.create_all()
     sniffer_thread = threading.Thread(target=run_sniffer)
     sniffer_thread.start()
-    app.run(debug=True)
-    # app.run(host='0.0.0.0', debug=True)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
 
