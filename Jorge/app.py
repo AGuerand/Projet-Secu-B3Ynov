@@ -15,7 +15,7 @@ import random
 import string
 from datetime import timedelta
 from flask_mail import Mail, Message
-
+from werkzeug.security import generate_password_hash, check_password_hash
 
 def run_sniffer():
     sniff(filter="tcp port 4444 or tcp port 4445", prn=detect_metasploit)
@@ -31,13 +31,7 @@ app = Flask(__name__, template_folder='templates')
 app.config['SECRET_KEY'] = 'mysecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=30)
-# app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
-# app.config['MAIL_PORT'] = 587
-# app.config['MAIL_USE_TLS'] = True
-# app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
-# app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 
-# SQLALCHEMY_TRACK_MODIFICATIONS = False
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
@@ -58,15 +52,28 @@ class User(UserMixin, db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-@app.route('/login', methods=['GET', 'POST'])
-@log_and_protect
+@app.route('/', methods=['GET', 'POST'])
 @limiter.limit("15 per minute")  # Limite le nombre de requêtes par minute
+@log_and_protect
 def login():
     form = LoginForm()
+    if session.get('login_attempts') is not None:
+        if session['login_attempts'] >= 8:
+            session['show_captcha'] = True
+        session['login_attempts'] += 1
+    else:
+        session['login_attempts'] = 1
+        session['show_captcha'] = False
     if form.validate_on_submit():
+        if 'captcha' in session and form.captcha.data.upper() != session['captcha']:
+            flash('Invalid CAPTCHA. Please try again.', 'danger')
+            return render_template('login.html', form=form)
         user = User.query.filter_by(username=form.username.data).first()
-        if user and user.password == form.password.data:
+        if user and check_password_hash(user.password, form.password.data):
             login_user(user)
+            session['login_attempts'] = 0
+            session.clear
+            session['show_captcha'] = False
             return redirect(url_for('dashboard'))
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
@@ -77,7 +84,8 @@ def login():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        new_user = User(username=form.username.data, password=form.password.data)
+        hashed_password = generate_password_hash(form.password.data)
+        new_user = User(username=form.username.data, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
@@ -116,7 +124,6 @@ def captcha():
 
     return response
 
-
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -126,14 +133,6 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-# @app.route("/")
-# def index():
-#     msg = Message("Hello",
-#                   sender="from@example.com",
-#                   recipients=[os.environ.get('TO_EMAIL')])
-#     msg.body = "This is the email body"
-#     mail.send(msg)
-#     return "Message sent!"
 
 if __name__ == '__main__':
     with app.app_context():

@@ -18,11 +18,8 @@ import os
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
 
-#chemin du répertoire actuel
 creds = None
-# The file token.json stores the user's access and refresh tokens, and is
-# created automatically when the authorization flow completes for the first
-# time.
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 if os.path.exists(os.path.join(current_dir, 'token.json')):
@@ -35,20 +32,6 @@ else:
     with open(os.path.join(current_dir, 'token.json'), 'w') as token:
         token.write(creds.to_json())
 
-# app = Flask(__name__)
-# mail = Mail(app)
-
-# def create_app():
-#     app.config['MAIL_SERVER']='sandbox.smtp.mailtrap.io'
-#     app.config['MAIL_PORT'] = 2525
-#     app.config['MAIL_USERNAME'] = 'c5780b3c580502'
-#     app.config['MAIL_PASSWORD'] = '32b8e070eab6c0'
-#     app.config['MAIL_USE_TLS'] = True
-#     app.config['MAIL_USE_SSL'] = False
-
-#     mail.init_app(app)
-
-#     return app
 
 # Dictionnaire pour stocker les tentatives de connexion échouées
 failed_attempts = {}
@@ -57,7 +40,7 @@ failed_attempts = {}
 # failed_attempts_by_ip = {}
 
 # Nombre de tentatives de connexion échouées autorisées avant le blocage
-max_attempts = 7
+max_attempts = 5
 
 # Temps en secondes avant qu'une tentative de connexion échouée expire
 block_duration = 200
@@ -89,7 +72,6 @@ def send_email(subject, body, to):
     message['subject'] = subject
     raw_message = base64.urlsafe_b64encode(message.as_bytes())
     raw_message = raw_message.decode()
-
     message = service.users().messages().send(userId="me", body={"raw": raw_message}).execute()
 
 def is_ip_blocked(client_ip):
@@ -107,7 +89,6 @@ def block_ip(client_ip):
 
 def decode_encoded_string(input_string):
     decoded_string = input_string
-
     # Décoder l'encodage URL
     try:
         decoded_string = urllib.parse.unquote(decoded_string)
@@ -121,7 +102,6 @@ def decode_encoded_string(input_string):
         pass
 
     return decoded_string
-
 
 def detect_bruteforce_attack(username):
     current_time = int(time.time())
@@ -138,8 +118,7 @@ def detect_bruteforce_attack(username):
     return False
 
 def detect_xss(input_string):
-#    xss_pattern = r'<.*?>|&.*?;'
-# XSS Regex V2
+    # XSS Regex V2
     xss_pattern = r'(\b)(on\S+)(\s*)=|javascript|<(|\/|[^\/>][^>]+|\/[^>][^>]+)>'
     return bool(re.search(xss_pattern, input_string))
 
@@ -166,12 +145,6 @@ def detect_metasploit(pkt):
                 block_ip(client_ip)
                 abort(400, description="Access denied.")
 
-# def update_failed_attempts_by_ip(client_ip):
-#     if client_ip not in failed_attempts_by_ip:
-#         failed_attempts_by_ip[client_ip] = 1
-#     else:
-#         failed_attempts_by_ip[client_ip] += 1
-
 
 def log_and_protect(func):
     @wraps(func)
@@ -184,53 +157,32 @@ def log_and_protect(func):
         if is_ip_blocked(client_ip):
             logging.warning(f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'")
             abort(429, description="Your IP is temporarily blocked. Please try again later.")
-            # msg = Message('Ip blocked', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-            # msg.body = f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'"
-            # mail.send(msg)
-
-        
 
         if username and password:
 
             if detect_cybersecurity_agents(user_agent):
-            # msg = Message('Agents detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-            # msg.body = f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'"
-            # mail.send(msg)
                 logging.warning(f"Cybersecurity agent '{user_agent}' detected from IP '{client_ip}'")
                 send_email(subject="Attack attempt detected from your APP: Maybe Cyber Agent",body=f"Cybersecurity agent {user_agent} detected on your APP from This IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
                 block_ip(client_ip)
                 abort(400, description="Access denied.")
 
             if detect_bruteforce_attack(username):
-                # msg = Message('Bruteforce detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-                # msg.body = f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'"
-                # mail.send(msg)
                 logging.warning(f"Brute force attack detected for Account: '{username}' from IP: '{client_ip}'")
                 send_email(subject="Attack attempt detected from your APP: BruteForce Attack",body=f"Brute force attack detected on your APP for Account: {username} from IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
                 block_ip(client_ip)
                 abort(429, description="Too many failed attempts. Please try again later.")
 
             if detect_sql_injection(username) or detect_sql_injection(password):
-                # msg = Message(subject= 'SQL Injection detected', sender ='idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-                # msg.body = f"SQL injection detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
-                # mail.send(msg)
                 logging.warning(f"SQL injection detected from IP : '{client_ip}'. Account: '{username}', Password: '{password}'")
                 send_email(subject="Attack attempt detected from your APP: SQL Injection Attack",body=f"SQL Inject attack detected on your APP for Account: {username} from IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
 
             if detect_xss(username) or detect_xss(password):
-                # msg = Message('XSS detected', sender =   'idsynov@gmail', recipients = ['jorgearturo@live.fr'])
-                # msg.body = f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'"
-                # mail.send(msg)
                 logging.warning(f"XSS attack detected from IP: '{client_ip}'. Account: '{username}', Password: '{password}'")
                 send_email(subject="Attack attempt detected from your APP: XSS Attack",body=f"XSS attack detected on your APP for Account: {username} from IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
                 block_ip(client_ip)
                 abort(400, description="Malicious input detected.")
-        # if username and password:
-        #     user = User.query.filter_by(username=username).first()
-        #     if not user or user.password != password:
-        #         update_failed_attempts_by_ip(client_ip)
+
         return func(*args, **kwargs)
-     #sniff(filter="tcp port 4444 or tcp port 4445", prn=detect_metasploit)
     return wrapper

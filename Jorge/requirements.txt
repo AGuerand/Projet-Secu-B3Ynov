@@ -21,6 +21,6 @@ Werkzeug==2.3.3
 WTForms==3.0.1
 captcha==0.4
 google-auth==2.18.0
-google-auth-oauthlib==2.15.0
-google-auth-httplib2==0.15.0
+google-auth-oauthlib==1.0.0
+google-auth-httplib2==0.1.0
 google-api-python-client==2.86.0
