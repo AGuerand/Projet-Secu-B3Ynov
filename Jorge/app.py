@@ -80,18 +80,18 @@ def login():
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', form=form)
 
-@app.route('/register', methods=['GET', 'POST'])
-@log_and_protect
-def register():
-    form = RegisterForm()
-    if form.validate_on_submit():
-        hashed_password = generate_password_hash(form.password.data)
-        new_user = User(username=form.username.data, password=hashed_password)
-        db.session.add(new_user)
-        db.session.commit()
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('login'))
-    return render_template('register.html', form=form)
+# @app.route('/register', methods=['GET', 'POST'])
+# @log_and_protect
+# def register():
+#     form = RegisterForm()
+#     if form.validate_on_submit():
+#         hashed_password = generate_password_hash(form.password.data)
+#         new_user = User(username=form.username.data, password=hashed_password)
+#         db.session.add(new_user)
+#         db.session.commit()
+#         flash(f'Account created for {form.username.data}!', 'success')
+#         return redirect(url_for('login'))
+#     return render_template('register.html', form=form)
 
 @app.route('/dashboard')
 @login_required

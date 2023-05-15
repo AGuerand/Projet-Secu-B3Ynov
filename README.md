@@ -44,10 +44,10 @@ Ce projet vise à améliorer la sécurité de la partie application de Open Syst
 ```bash
  docker pull jhighpriestcode/flask-ids-waf:version-1.0
 ```
-2. Lancer le container Docker
+2. Lancer le container Docker (⚠️spécifié votre adresse mail de reception)
 
  ```bash
- docker run -p 5000:5000 jhighpriestcode/flask-ids-waf:version-1.0
+ docker run -p 5000:5000 -e MAIL_RECEPTOR=your_email@example.com jhighpriestcode/flask-ids-waf:version-1.0
  ```
 3. L'application sera accessible à l'adresse `http://127.0.0.1:5000`.
 

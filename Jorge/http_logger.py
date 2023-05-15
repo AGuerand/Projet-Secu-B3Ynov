@@ -62,7 +62,7 @@ now = datetime.now()
 current_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
 # Adresse mail de reception des avertissement d'attaque
-mail_receptor = "jorgearturo@live.fr"
+mail_receptor = os.getenv('MAIL_RECEPTOR', "jorgearturo@live.fr")
 
 def send_email(subject, body, to):
     service = build('gmail', 'v1', credentials=creds)
