@@ -43,7 +43,7 @@ failed_attempts = {}
 max_attempts = 5
 
 # Temps en secondes avant qu'une tentative de connexion échouée expire
-block_duration = 200
+block_duration = 8
 
 # Dictionnaire pour stocker les adresses IP bloquées et leurs temps de déblocage
 blocked_ips = {}
@@ -106,14 +106,15 @@ def decode_encoded_string(input_string):
 def detect_bruteforce_attack(username):
     current_time = int(time.time())
     if username not in failed_attempts:
-        failed_attempts[username] = {"attempts": 1, "time": current_time}
+        failed_attempts[username] = [current_time]
     else:
-        if current_time - failed_attempts[username]["time"] < block_duration:
-            failed_attempts[username]["attempts"] += 1
-        else:
-            failed_attempts[username] = {"attempts": 1, "time": current_time}
+        # Enleve les tentatives qui sont plus anciennes que la durée du bloc.
+        failed_attempts[username] = [t for t in failed_attempts[username] if current_time - t < block_duration]
+        failed_attempts[username].append(current_time)
 
-    if failed_attempts[username]["attempts"] >= max_attempts:
+    # Si le nombre de tentatives échouées dans le bloc de temps dépasse le maximum autorisé,
+    # alors nous considérons cela comme une attaque brute force.
+    if len(failed_attempts[username]) >= max_attempts:
         return True
     return False
 
@@ -156,6 +157,7 @@ def log_and_protect(func):
         
         if is_ip_blocked(client_ip):
             logging.warning(f"This IP: '{client_ip}' try to connect againt to this Account: '{username}'")
+            send_email(subject="Attack attempt detected from your APP: Maybe DDOS",body=f"Attack DDOS detected on your APP from This IP: {client_ip} at {current_time}, be carefull",to=mail_receptor)
             abort(429, description="Your IP is temporarily blocked. Please try again later.")
 
         if username and password:

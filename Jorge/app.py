@@ -61,6 +61,8 @@ def login():
             session['show_captcha'] = True
         session['login_attempts'] += 1
     else:
+        session.clear()  # Supprime le contenu de la session
+        session.pop('_flashes', None)  # Supprime les messages flash de la session
         session['login_attempts'] = 1
         session['show_captcha'] = False
     if form.validate_on_submit():
