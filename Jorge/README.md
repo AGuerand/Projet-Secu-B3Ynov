@@ -9,7 +9,7 @@ Ce projet vise à améliorer la sécurité de la partie application de Open Syst
 
 ## Architecture du Projet
 
-![alt text](https://github.com/AGuerand/Projet-Secu-B3Ynov/blob/main/Archi_WAF.png?raw=true)
+![alt text](https://github.com/AGuerand/Projet-Secu-B3Ynov/blob/main/Archi_tech.png?raw=true)
 
 ## Fonctionnalités
 - Détection et blocage des attaques par force brute
